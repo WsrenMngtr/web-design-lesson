@@ -40,6 +40,30 @@
 	filter: Alpha(Opacity=80);
 	opacity: 0.8;
 }
+.login-title {
+}
+.login-err {
+	color: #F00;
+	visibility: hidden;
+}
+.login-btn {
+	color: #FFF;
+	background-color: #333;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.login-btn:hover {
+	background-color: #FFF;
+	color: #333;
+}
+.login-btn:active {
+	background-color: #F30;
+	color: #FFF;
+}
+.login-input {
+	float: left;
+	margin-left: 15px;
+}
 </style>
 </head>
 
@@ -49,10 +73,14 @@
   <div id="mid">
     <div id="login-form">
       <form id="login-form1">
-        <div class="login-group">username:<input name="username" type="text" />*must</div>
-        <div class="login-group">password:<input name="password" type="password"/>*must</div>
+        <div class="login-group"><span class="login-title">username:</span>
+          <input name="username" type="text" />
+        <span class="login-err">*must</span></div>
+        <div class="login-group"><span class="login-title">password:</span>
+          <input name="password" type="password" />
+        <span class="login-err">*must</span></div>
         <div class="login-group"><input name="auto-login" type="checkbox" value="" />auto login</div>
-        <div class="login-group"><input name="login" type="button" value="login in" /><input name="register" type="button" value="register in" /></div>
+        <div class="login-group"><input name="login" type="button" class="login-btn" value="login in" /><input name="register" type="button" class="login-btn" value="register in" /></div>
       </form>
     </div>
   </div>
