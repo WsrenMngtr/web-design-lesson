@@ -14,17 +14,19 @@ function visibleId(id) {
 }
 
 function loginCommand() {
-	alert('"', document.getElementById('username').value, '"')
 	if (document.getElementById('username').value == '') {
 		visibleId('username-err')	
+		return
 	} else {
 		hiddenId('username-err')
 	}
 	if (document.getElementById('password').value == '') {
-		visibleId('password-err')	
+		visibleId('password-err')
+		return	
 	} else {
 		hiddenId('password-err')	
 	}
+	document.forms[0].submit() // test using
 }
 </script>
 <link href="style/login.css" rel="stylesheet" type="text/css" />
@@ -36,13 +38,13 @@ function loginCommand() {
   <div id="head"></div>
   <div id="mid">
     <div id="login-form">
-      <form id="login-form1">
+      <form id="login-form1" name="login-form1" method="get" action="https://www.baidu.com">
         <div class="login-group"><span class="login-title">username:</span>
-          <input name="username" type="text" />
+          <input name="username" type="text" id="username" />
           <span class="login-err" id="username-err">*must</span>
         </div>
         <div class="login-group"><span class="login-title">password:</span>
-          <input name="password" type="password" placeholder="more than 6 word" />
+          <input name="password" type="password" id="password" placeholder="more than 6 word" />
           <span class="login-err" id="password-err">*must</span>
         </div>
         <div class="login-group"><input name="auto-login" type="checkbox" value="" />auto login</div>
