@@ -4,85 +4,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>LOGIN</title>
 
-<style type="text/css">
-#con {
-	height: 600px;
-	width: 800px;
+
+<script type="text/javascript">
+function hiddenId(id) {
+	document.getElementById(id).style.visibility = "hidden"
 }
-#head {
-	background-image: url(images/logo.jpg);
-	background-repeat: no-repeat;
-	height: 70px;
-	width: 100%;
+function visibleId(id) {
+	document.getElementById(id).style.visibility = "visible"
 }
-#mid {
-	background-image: url(images/bg.jpg);
-	background-repeat: no-repeat;
-	height: 533px;
-	width: 100%;
+
+function loginCommand() {
+	alert('"', document.getElementById('username').value, '"')
+	if (document.getElementById('username').value == '') {
+		visibleId('username-err')	
+	} else {
+		hiddenId('username-err')
+	}
+	if (document.getElementById('password').value == '') {
+		visibleId('password-err')	
+	} else {
+		hiddenId('password-err')	
+	}
 }
-.login-group {
-	height: 35px;
-	width: 100%;
-	margin-top: 15px;
-}
-#foot {
-	line-height: 30px;
-}
-#login-form {
-	background-color: #999;
-	float: right;
-	height: 200px;
-	width: 45%;
-	margin-top: 50px;
-	margin-right: 50px;
-	clip: rect(auto,auto,auto,auto);
-	filter: Alpha(Opacity=80);
-	opacity: 0.8;
-}
-.login-title {
-}
-.login-err {
-	color: #F00;
-	visibility: hidden;
-}
-.login-btn {
-	color: #FFF;
-	background-color: #333;
-	margin-left: 10px;
-	cursor: pointer;
-}
-.login-btn:hover {
-	background-color: #FFF;
-	color: #333;
-}
-.login-btn:active {
-	background-color: #F30;
-	color: #FFF;
-}
-.login-input {
-	float: left;
-	margin-left: 15px;
-}
-#errorInfo {
-	background-color: #FF0;
-	position: absolute;
-	height: 50px;
-	width: 300px;
-	left: 493px;
-	top: 82px;
-	
-}
-#close {
-	cursor: pointer;
-	background-color: white;
-	
-}
-</style>
+</script>
+<link href="style/login.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-<div id="errorInfo">错误信息<span id="close">x</span></div>
+<div id="errorInfo">错误信息<span id="close" onclick="hiddenId('errorInfo')">x</span></div>
 <div id="con">
   <div id="head"></div>
   <div id="mid">
@@ -90,12 +39,17 @@
       <form id="login-form1">
         <div class="login-group"><span class="login-title">username:</span>
           <input name="username" type="text" />
-        <span class="login-err">*must</span></div>
+          <span class="login-err" id="username-err">*must</span>
+        </div>
         <div class="login-group"><span class="login-title">password:</span>
           <input name="password" type="password" placeholder="more than 6 word" />
-        <span class="login-err">*must</span></div>
+          <span class="login-err" id="password-err">*must</span>
+        </div>
         <div class="login-group"><input name="auto-login" type="checkbox" value="" />auto login</div>
-        <div class="login-group"><input name="login" type="button" class="login-btn" value="login in" /><input name="register" type="button" class="login-btn" value="register in" /></div>
+        <div class="login-group">
+          <input name="login" type="button" class="login-btn" value="login in" onclick="loginCommand()" />
+          <input name="register" type="button" class="login-btn" value="register in" />
+        </div>
       </form>
     </div>
   </div>

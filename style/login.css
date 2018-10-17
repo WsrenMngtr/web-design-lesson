@@ -1,0 +1,74 @@
+@charset "gb2312";
+#con {
+	height: 600px;
+	width: 800px;
+}
+#head {
+	background-image: url(../images/logo.jpg);
+	background-repeat: no-repeat;
+	height: 70px;
+	width: 100%;
+}
+#mid {
+	background-image: url(../images/bg.jpg);
+	background-repeat: no-repeat;
+	height: 533px;
+	width: 100%;
+}
+.login-group {
+	height: 35px;
+	width: 100%;
+	margin-top: 15px;
+}
+#foot {
+	line-height: 30px;
+}
+#login-form {
+	background-color: #999;
+	float: right;
+	height: 200px;
+	width: 45%;
+	margin-top: 50px;
+	margin-right: 50px;
+	clip: rect(auto,auto,auto,auto);
+	filter: Alpha(Opacity=80);
+	opacity: 0.8;
+}
+.login-title {
+}
+.login-err {
+	color: #F00;
+	visibility: hidden;
+}
+.login-btn {
+	color: #FFF;
+	background-color: #333;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.login-btn:hover {
+	background-color: #FFF;
+	color: #333;
+}
+.login-btn:active {
+	background-color: #F30;
+	color: #FFF;
+}
+.login-input {
+	float: left;
+	margin-left: 15px;
+}
+#errorInfo {
+	background-color: #FF0;
+	position: absolute;
+	height: 50px;
+	width: 300px;
+	left: 493px;
+	top: 82px;
+	visibility: hidden;
+}
+#close {
+	cursor: pointer;
+	background-color: white;
+}/* CSS Document */
+
