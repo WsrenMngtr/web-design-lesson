@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>注册</title>
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-size: 36px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+.STYLE2 {
+	font-family: "微软雅黑";
+	font-size: 18px;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #FF0000;
+	font-size: 4px;
+	font-weight: bold;
+	font-family: "黑体";
+}
+-->
+</style>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="reg.asp">
+  <table width="600" border="0" align="center">
+  	<tr><td colspan=3><p align="center" class="STYLE1">注册信息</p></td></tr>
+    <tr>
+      <td width="36%"><div align="right"><span class="STYLE2">用户名：</span></div></td>
+      <td width="32%"><label>
+        <input name="username" type="text" class="STYLE2" id="username"  />
+      </label></td>
+      <td width="32%"><label id="lblUsername"></label></td>
+    </tr>
+    <tr>
+      <td class="STYLE2"><div align="right">密码：</div></td>
+      <td><label>
+        <input name="psd" type="password"  class="STYLE2" id="psd"   />
+      </label></td>
+      <td><label id="lblPsd"></label></td>
+    </tr>
+    <tr>
+      <td class="STYLE2"><div align="right">密码确认：</div></td>
+      <td><label>
+        <input name="repsd"  type="password" class="STYLE2" id="repsd"    />
+      </label></td>
+      <td><label id="lblRepsd"></label></td>
+    </tr>
+    <tr>
+      <td align="right" class="STYLE2">手机号码：</td>
+      <td><label for="phone"></label>
+      <input name="phone" type="text" class="STYLE2" id="phone"  /></td>
+      <td><label id="lblPhone"></label>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3"><label>
+        <div align="center">
+          <input name="reg" type="button" class="STYLE2" id="reg"  value="注册" />
+          <input name="Submit2" type="reset" class="STYLE2" value="重置" />
+        </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
