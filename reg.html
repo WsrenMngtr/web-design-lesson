@@ -23,6 +23,58 @@
 }
 -->
 </style>
+<script>
+	function setColorById(id, color) {
+		document.getElementById(id).style.color = color;
+	}
+	
+	function checkUsername() {
+		var	username = document.getElementById("username").value;
+		var usernameRegex = /^\w{6,18}$/;
+		if (usernameRegex.test(username)) {
+			setColorById("lblUsername", "green");
+			document.getElementById("lblUsername").innerHTML = 'good';
+		} else {
+			setColorById("lblUsername", "red");
+			document.getElementById("lblUsername").innerHTML = '6-18 words and only digit and char';
+		}
+	}
+	
+	function checkPassword() {
+		var	password = document.getElementById("psd").value;
+		var passwordRegex = /^\w{8,18}$/;
+		if (passwordRegex.test(password)) {
+			setColorById("lblPsd", "green");
+			document.getElementById("lblPsd").innerHTML = 'good';
+		} else {
+			setColorById("lblPsd", "red");
+			document.getElementById("lblPsd").innerHTML = '8-18 words and only digit and char';
+		}
+	}
+	
+	function checkRepassword() {
+		var	password = document.getElementById("psd").value;
+		var repassword	= document.getElementById("repsd").value;
+		if (password === repassword) {
+			setColorById("lblRepsd", "green");
+			document.getElementById("lblRepsd").innerHTML = 'good';	
+		} else {
+			setColorById("lblRepsd", "red");
+			document.getElementById("lblRepsd").innerHTML = 'repassword is not same with password';
+		}
+	}
+	function checkPhone() {
+		var phoneRegex = /^1[34578]\d{9}$/;
+		var phone = document.getElementById("phone").value;	
+		if (phoneRegex.test(phone)) {
+			setColorById("lblPhone", "green");
+			document.getElementById("lblPhone").innerHTML = 'good';
+		} else {
+			setColorById("lblPhone", "red");
+			document.getElementById("lblPhone").innerHTML = 'phone number format is wrong';
+		}
+	}
+</script>
 </head>
 <body>
 <form id="form1" name="form1" method="post" action="reg.asp">
@@ -31,21 +83,21 @@
     <tr>
       <td width="36%"><div align="right"><span class="STYLE2">用户名：</span></div></td>
       <td width="32%"><label>
-        <input name="username" type="text" class="STYLE2" id="username"  />
+        <input name="username" type="text" class="STYLE2" id="username" onblur="checkUsername();" />
       </label></td>
       <td width="32%"><label id="lblUsername"></label></td>
     </tr>
     <tr>
       <td class="STYLE2"><div align="right">密码：</div></td>
       <td><label>
-        <input name="psd" type="password"  class="STYLE2" id="psd"   />
+        <input name="psd" type="password"  class="STYLE2" id="psd" onblur="checkPassword();" />
       </label></td>
       <td><label id="lblPsd"></label></td>
     </tr>
     <tr>
       <td class="STYLE2"><div align="right">密码确认：</div></td>
       <td><label>
-        <input name="repsd"  type="password" class="STYLE2" id="repsd"    />
+        <input name="repsd"  type="password" class="STYLE2" id="repsd" onblur="checkRepassword();" />
       </label></td>
       <td><label id="lblRepsd"></label></td>
     </tr>
