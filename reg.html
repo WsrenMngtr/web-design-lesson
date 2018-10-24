@@ -34,21 +34,25 @@
 		if (usernameRegex.test(username)) {
 			setColorById("lblUsername", "green");
 			document.getElementById("lblUsername").innerHTML = 'good';
+			return true;
 		} else {
 			setColorById("lblUsername", "red");
 			document.getElementById("lblUsername").innerHTML = '6-18 words and only digit and char';
+			return false;
 		}
 	}
 	
 	function checkPassword() {
 		var	password = document.getElementById("psd").value;
-		var passwordRegex = /^\w{8,18}$/;
+		var passwordRegex = /^\w{6,18}$/;
 		if (passwordRegex.test(password)) {
 			setColorById("lblPsd", "green");
 			document.getElementById("lblPsd").innerHTML = 'good';
+			return true;
 		} else {
 			setColorById("lblPsd", "red");
-			document.getElementById("lblPsd").innerHTML = '8-18 words and only digit and char';
+			document.getElementById("lblPsd").innerHTML = '6-18 words and only digit and char';
+			return false;
 		}
 	}
 	
@@ -57,27 +61,49 @@
 		var repassword	= document.getElementById("repsd").value;
 		if (password === repassword) {
 			setColorById("lblRepsd", "green");
-			document.getElementById("lblRepsd").innerHTML = 'good';	
+			document.getElementById("lblRepsd").innerHTML = 'good';
+			return true;	
 		} else {
 			setColorById("lblRepsd", "red");
 			document.getElementById("lblRepsd").innerHTML = 'repassword is not same with password';
+			return false;
 		}
 	}
+	
 	function checkPhone() {
-		var phoneRegex = /^1[34578]\d{9}$/;
-		var phone = document.getElementById("phone").value;	
+		var phone = document.getElementById("phone").value;
+		if (phone.length === 0) {
+			document.getElementById("lblPhone").innerHTML = '';
+			return true;	
+		}	
+		var phoneRegex = /^1\d{10}$/;
 		if (phoneRegex.test(phone)) {
 			setColorById("lblPhone", "green");
 			document.getElementById("lblPhone").innerHTML = 'good';
+			return true;
 		} else {
 			setColorById("lblPhone", "red");
 			document.getElementById("lblPhone").innerHTML = 'phone number format is wrong';
+			return false;
 		}
 	}
+	
+	function clickSubmit() {
+		if (checkUsername() && checkPassword() && checkRepassword() && checkPhone()) {
+			document.forms[0].submit();	
+		}
+	}
+	
+	function keySubmit() {
+		if (window.event.key === "Enter") {
+			clickSubmit();	
+		}	
+	}
+	
 </script>
 </head>
 <body>
-<form id="form1" name="form1" method="post" action="reg.asp">
+<form id="form1" name="form1" method="post" action="reg.asp" onkeypress="keySubmit();">
   <table width="600" border="0" align="center">
   	<tr><td colspan=3><p align="center" class="STYLE1">×¢²áÐÅÏ¢</p></td></tr>
     <tr>
@@ -104,13 +130,13 @@
     <tr>
       <td align="right" class="STYLE2">ÊÖ»úºÅÂë£º</td>
       <td><label for="phone"></label>
-      <input name="phone" type="text" class="STYLE2" id="phone"  /></td>
+      <input name="phone" type="text" class="STYLE2" id="phone" onblur="checkPhone();" /></td>
       <td><label id="lblPhone"></label>&nbsp;</td>
     </tr>
     <tr>
       <td colspan="3"><label>
         <div align="center">
-          <input name="reg" type="button" class="STYLE2" id="reg"  value="×¢²á" />
+          <input name="reg" type="button" class="STYLE2" id="reg"  value="×¢²á" onblur="clickSubmit()" />
           <input name="Submit2" type="reset" class="STYLE2" value="ÖØÖÃ" />
         </div>
       </label></td>
