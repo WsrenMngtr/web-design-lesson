@@ -33,12 +33,14 @@ function loginCommand() {
 </head>
 
 <body>
-<div id="errorInfo">¥ÌŒÛ–≈œ¢<span id="close" onclick="hiddenId('errorInfo')">x</span></div>
+<% if request.QueryString("errinfo") <> "" then %>
+<div id="errorInfo"><% response.Write request.QueryString("errinfo") %><span id="close" onclick="hiddenId('errorInfo')">x</span></div>
+<% end if %>
 <div id="con">
   <div id="head"></div>
   <div id="mid">
     <div id="login-form">
-      <form id="login-form1" name="login-form1" method="get" action="https://www.baidu.com">
+      <form id="login-form1" name="login-form1" method="get" action="login.asp">
         <div class="login-group"><span class="login-title">username:</span>
           <input name="username" type="text" id="username" />
           <span class="login-err" id="username-err">*must</span>
