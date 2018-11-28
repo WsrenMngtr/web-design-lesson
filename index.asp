@@ -35,7 +35,7 @@ end if
           <LI><A href="#"  target=_self>给我留言</A> </LI>
           <LI></LI>
           <LI><A href="#">我的收藏</A> </LI>
-          <A href="#" ><% response.Write session("username") %></A>
+          <A href="#" onClick="window.open('edituser.asp', '', 'width=300, heigh=400')" ><% response.Write session("username") %></A>
 		  <LI><a href="#">修改密码</a></LI>
           <LI><A href="#" onClick="exit();" >退出</A> </LI>          
         </UL>        

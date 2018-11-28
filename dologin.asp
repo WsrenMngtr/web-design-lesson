@@ -3,7 +3,6 @@
 username = request.Form("username")
 password = request.Form("password")
 autologin = request.Form("autologin")
-response.Redirect("login.asp?debug=autolog:" & request("autologin"))
 
 if autologin <> "" then
 	response.Cookies("autologin")("username") = username
