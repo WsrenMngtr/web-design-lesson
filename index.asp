@@ -32,7 +32,7 @@ end if
           <LI><A href="index.asp">Home</A> </LI>
           <LI><A href="#">我的好友</A></LI> 
           <LI><A href="#" >我的投票</A> </LI>
-          <LI><A href="#"  target=_self>给我留言</A> </LI>
+          <LI><A href="note.asp" target=_self>给我留言</A> </LI>
           <LI></LI>
           <LI><A href="#">我的收藏</A> </LI>
           <A href="#" onClick="window.open('edituser.asp', '', 'width=300, heigh=400')" ><% response.Write session("username") %></A>
